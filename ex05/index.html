@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex 05</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        canvas {
+          border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Exercicio 05 - Labirinto - Vinicius Villa Real</h1>
+    <canvas id="labirinto" width="300" height="300"></canvas>
+    <script>
+      const tela = document.getElementById('labirinto');
+      const contexto = tela.getContext('2d');
+  
+      const jogador = {
+        x: 10,
+        y: 10,
+        tamanho: 10
+      };
+  
+      const saida = {
+        x: 280,
+        y: 280,
+        tamanho: 10
+      };
+  
+      const paredes = [
+        { x: 0, y: 0, largura: 300, altura: 10 },
+        { x: 0, y: 0, largura: 10, altura: 300 },
+        { x: 290, y: 0, largura: 10, altura: 300 },
+        { x: 0, y: 290, largura: 300, altura: 10 },
+        { x: 100, y: 100, largura: 100, altura: 10 },
+        { x: 100, y: 100, largura: 10, altura: 100 },
+        { x: 190, y: 100, largura: 10, altura: 100 },
+        { x: 100, y: 190, largura: 100, altura: 10 }
+      ];
+  
+      function desenharJogador() {
+        contexto.fillStyle = 'red';
+        contexto.fillRect(jogador.x, jogador.y, jogador.tamanho, jogador.tamanho);
+      }
+  
+      function desenharSaida() {
+        contexto.fillStyle = 'green';
+        contexto.fillRect(saida.x, saida.y, saida.tamanho, saida.tamanho);
+      }
+  
+      function desenharParedes() {
+        contexto.fillStyle = 'black';
+        paredes.forEach(parede => {
+          contexto.fillRect(parede.x, parede.y, parede.largura, parede.altura);
+        });
+      }
+  
+      function detectarColisao() {
+        for (let parede of paredes) {
+          if (jogador.x < parede.x + parede.largura &&
+              jogador.x + jogador.tamanho > parede.x &&
+              jogador.y < parede.y + parede.altura &&
+              jogador.y + jogador.tamanho > parede.y) {
+            alert('Você tocou na parede! Volte ao início.');
+            jogador.x = 10;
+            jogador.y = 10;
+            break;
+          }
+        }
+      }
+  
+      function detectarSaida() {
+        if (jogador.x === saida.x && jogador.y === saida.y) {
+          alert('Parabéns! Você encontrou a saída!');
+          jogador.x = 10;
+          jogador.y = 10;
+        }
+      }
+  
+      function atualizarTela() {
+        contexto.clearRect(0, 0, tela.width, tela.height);
+        desenharParedes();
+        desenharSaida();
+        desenharJogador();
+        detectarColisao();
+        detectarSaida();
+      }
+  
+      window.addEventListener('keydown', (event) => {
+        const velocidade = 10;
+        switch(event.key) {
+          case 'ArrowUp':
+            jogador.y -= velocidade;
+            break;
+          case 'ArrowDown':
+            jogador.y += velocidade;
+            break;
+          case 'ArrowLeft':
+            jogador.x -= velocidade;
+            break;
+          case 'ArrowRight':
+            jogador.x += velocidade;
+            break;
+        }
+        atualizarTela();
+      });
+  
+      atualizarTela();
+    </script>
+  </body>
+</html>

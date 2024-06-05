@@ -1,0 +1,52 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    
+    background-color: rgb(0, 191, 255);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    text-shadow: 0.1px 1px 5px black;
+    padding: 50px;
+    text-align: center;
+    color: white;
+}
+
+section{
+    margin: auto;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    min-width: 320px;
+    max-width: 500px;
+    
+    background-color: white;
+    border-radius: 50px;
+}
+
+div#botao_dark{
+    text-align: end;
+}
+
+button{
+    padding: 15px;
+    border-radius: 100%;
+    background-image: url('../ex014/imagens/botao_dark.webp');
+    background-size: contain;
+    cursor: pointer;
+}
+
+section>h1{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+p{  
+    text-align: center;
+    font-weight: bold;
+}

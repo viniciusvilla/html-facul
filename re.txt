@@ -1,0 +1,29 @@
+Nome: Pedro dos Santos
+
+Data de Nascimento: 01/01/2000 
+([0-9]{2})[/]([0-9]{2})[/]([0-9]{4})
+
+CPF: 123.456.789-00
+([0-9]{3})[.]([0-9]{3})[.]([0-9]{3})[-]([0-9]{2})
+
+Endereço: nova america, del castilho
+
+valor dos serviços: R$1200,00
+(R)([$][0-9]{4})[,]([0-9]{2})
+
+Tipo de contrato: Mei
+
+
+
+Nome: Ana
+
+Data de Nascimento: 01/01/2010
+
+CPF: 123.456.789-00
+
+Endereço: norte shop
+
+Valor dos serviços: R$1200
+(R)([$][0-9]{4})
+
+Tipo de contrato: CLT
